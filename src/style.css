@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  min-height: 100vh;
+  min-width: 100vw;
+  background-image: url("./assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@layer components {
+  .glass {
+    @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-60 rounded-lg shadow-xl;
+  }
+}
