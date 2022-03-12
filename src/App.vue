@@ -1,11 +1,16 @@
 <script setup>
 import { onMounted } from "vue";
 import CardContainer from "./components/CardContainer.vue";
+import useWallpaperStore from "./store/wallpaperStore";
 import getRandomWallpaper from "./util/getRandomWallpaper";
+
+const wallpaperStore = useWallpaperStore();
+const baseUrl = "https://pokewalls.files.wordpress.com";
 
 onMounted(async () => {
   const wallpaper = await getRandomWallpaper();
-  document.body.style.backgroundImage = `url('${wallpaper}')`;
+  wallpaperStore.setWallpaper(wallpaper.replace(baseUrl, ""));
+  document.body.style.backgroundImage = `url('${baseUrl}${wallpaperStore.url}')`;
 });
 </script>
 
