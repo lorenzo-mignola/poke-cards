@@ -7,17 +7,21 @@
       Lorenzo card
       <PokeBall class="pokeball ml-3" />
     </h1>
+    <div class="pokemons p-5">
+      <PokeCard />
+      <PokeCard />
+    </div>
   </div>
 </template>
 
 <script setup>
 import PokeBall from "../assets/Poké_Ball_icon.svg";
+import PokeCard from "./PokeCard.vue";
 </script>
 
 <style lang="scss" scoped>
 .card {
   width: 80vw;
-  height: 80vh;
 }
 
 h1 {
@@ -27,5 +31,11 @@ h1 {
 .pokeball {
   width: 2.5rem;
   height: 2.5rem;
+}
+
+.pokemons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-gap: 1rem;
 }
 </style>
