@@ -18,22 +18,30 @@ const usePokemonStore = defineStore("pokemon", {
         return;
       }
 
-      const { data: pokemon } = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
-      );
+      try {
+        const { data: pokemon } = await axios.get(
+          `https://pokeapi.co/api/v2/pokemon/${pokemonId}`
+        );
+        if (!pokemon) {
+          return;
+        }
 
-      if (!pokemon) {
-        return;
+        const {
+          id,
+          name,
+          sprites: { front_default: sprite },
+        } = pokemon;
+        this.pokemon[pokemonId] = { id, name, sprite };
+        this.pokemonId[index] = id;
+      } catch (error) {
+        // eslint-disable-next-line no-console
+        console.info(`Pokemon with id ${pokemonId} not found`);
       }
-
-      const {
-        id,
-        name,
-        sprites: { front_default: sprite },
-      } = pokemon;
-      this.pokemon[pokemonId] = { id, name, sprite };
-      this.pokemonId[index] = id;
-      console.log("clg -> getPokemonData -> this.pokemon", this.pokemon);
+    },
+    removePokemon(index) {
+      const prevId = this.pokemonId[index];
+      this.pokemonId.splice(index, 1);
+      delete this.pokemon[prevId];
     },
   },
 });

@@ -17,7 +17,10 @@
         }}</span>
       </div>
       <div class="hidden group-hover:flex transition-all duration-150">
-        <button class="hover:shadow-xl text-gray-600 hover:text-gray-900">
+        <button
+          class="hover:shadow-xl text-gray-600 hover:text-gray-900"
+          @click="handleDelete"
+        >
           <Delete class="delete-icon" />
         </button>
       </div>
@@ -51,12 +54,18 @@ const pokemonId = ref(props.id);
 const loadPokemon = useDebounceFn(() => {
   pokemonStore.getPokemonData(pokemonId.value, props.index);
 }, 300);
+
+const handleDelete = () => {
+  pokemonStore.removePokemon(props.index);
+};
 </script>
 
 <style lang="scss" scoped>
 .sprite {
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 100px;
+  min-width: 100px;
+  display: grid;
+  place-content: center;
   background-color: #fff;
 }
 
