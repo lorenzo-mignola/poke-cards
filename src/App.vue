@@ -1,5 +1,12 @@
 <script setup>
+import { onMounted } from "vue";
 import CardContainer from "./components/CardContainer.vue";
+import getRandomWallpaper from "./util/getRandomWallpaper";
+
+onMounted(async () => {
+  const wallpaper = await getRandomWallpaper();
+  document.body.style.backgroundImage = `url('${wallpaper}')`;
+});
 </script>
 
 <template>
