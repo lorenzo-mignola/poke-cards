@@ -8,8 +8,9 @@
       <PokeBall class="pokeball ml-3" />
     </h1>
     <div class="pokemons p-5">
-      <PokeCard />
-      <PokeCard />
+      <div v-for="(pokemon, index) in pokemonId" :key="pokemon">
+        <PokeCard :id="pokemon" :index="index"/>
+      </div>
     </div>
     <div class="flex justify-center mt-4 mb-6">
       <ShareButton />
@@ -19,10 +20,16 @@
 </template>
 
 <script setup>
+import { storeToRefs } from "pinia";
 import PokeBall from "../assets/Poké_Ball_icon.svg";
+import usePokemonStore from "../store/pokemonStore";
 import AddButton from "./AddButton.vue";
 import PokeCard from "./PokeCard.vue";
 import ShareButton from "./ShareButton.vue";
+
+const pokemonStore = usePokemonStore();
+
+const { pokemonId } = storeToRefs(pokemonStore);
 </script>
 
 <style lang="scss" scoped>

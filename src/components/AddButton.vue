@@ -1,6 +1,7 @@
 <template>
   <button
     class="add-button p-3 lg:text-2xl text-md shadow-lg hover:shadow-xl rounded-lg flex items-center mr-4 ml-4"
+    @click="pokemonStore.addPokemon"
   >
     <Add class="mr-2" />Add Pokémon
   </button>
@@ -8,6 +9,9 @@
 
 <script setup>
 import Add from "../assets/Add.svg";
+import usePokemonStore from "../store/pokemonStore";
+
+const pokemonStore = usePokemonStore();
 </script>
 
 <style lang="scss" scoped>

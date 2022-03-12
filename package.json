@@ -8,6 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vueuse/core": "^8.0.0",
     "autoprefixer": "^10.4.2",
     "axios": "^0.26.1",
     "cheerio": "^1.0.0-rc.10",
