@@ -1,6 +1,5 @@
 <script setup>
 import { onMounted } from "vue";
-import CardContainer from "./components/CardContainer.vue";
 import useWallpaperStore from "./store/wallpaperStore";
 import getRandomWallpaper from "./util/getRandomWallpaper";
 
@@ -15,20 +14,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="card-container">
-    <CardContainer />
-  </div>
+  <router-view></router-view>
 </template>
-
-<style lang="scss" scoped>
-.card-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-}
-</style>
 
 <style>
 #app {
