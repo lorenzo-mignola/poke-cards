@@ -4,12 +4,12 @@
       class="glass lg:text-6xl md:3xl bold capitalize shadow-none p-6 flex items-center w-full justify-center"
     >
       <PokeBall class="pokeball mr-3" />
-      Lorenzo card
+      {{ nameStore.name }} card
       <PokeBall class="pokeball ml-3" />
     </h1>
     <div class="pokemons p-5">
       <div v-for="(pokemon, index) in pokemonId" :key="pokemon">
-        <PokeCard :id="pokemon" :index="index"/>
+        <PokeCard :id="pokemon" :index="index" />
       </div>
     </div>
     <div class="flex justify-center mt-4 mb-6">
@@ -22,12 +22,14 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import PokeBall from "../assets/Poké_Ball_icon.svg";
+import useNameStore from "../store/nameStore";
 import usePokemonStore from "../store/pokemonStore";
 import AddButton from "./AddButton.vue";
 import PokeCard from "./PokeCard.vue";
 import ShareButton from "./ShareButton.vue";
 
 const pokemonStore = usePokemonStore();
+const nameStore = useNameStore();
 
 const { pokemonId } = storeToRefs(pokemonStore);
 </script>

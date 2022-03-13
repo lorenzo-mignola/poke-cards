@@ -25,3 +25,19 @@ body {
     @apply bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-40 rounded-lg shadow-xl;
   }
 }
+
+.button-primary {
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(247, 87, 0, 1) 0%,
+    rgba(249, 0, 0, 1) 90.1%
+  );
+  color: white;
+}
+.button-primary:disabled {
+  box-shadow: none;
+  background: #9ca3af;
+}
+.button-primary:disabled:hover {
+  box-shadow: none;
+}

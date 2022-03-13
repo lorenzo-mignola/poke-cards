@@ -44,6 +44,9 @@ const usePokemonStore = defineStore("pokemon", {
       delete this.pokemon[prevId];
     },
   },
+  getters: {
+    canAddPokemon: (state) => state.pokemonId.length < 6,
+  },
 });
 
 export default usePokemonStore;
