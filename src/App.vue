@@ -9,7 +9,6 @@ const baseUrl = "https://pokewalls.files.wordpress.com";
 onMounted(async () => {
   const wallpaper = await getRandomWallpaper();
   wallpaperStore.setWallpaper(wallpaper.replace(baseUrl, ""));
-  document.body.style.backgroundImage = `url('${baseUrl}${wallpaperStore.url}')`;
 });
 </script>
 
