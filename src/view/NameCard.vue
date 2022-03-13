@@ -1,5 +1,5 @@
 <template>
-  <div>What's your name?</div>
+  <div></div>
 </template>
 
 <script setup></script>

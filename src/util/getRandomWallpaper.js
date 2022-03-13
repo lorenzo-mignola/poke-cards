@@ -4,8 +4,10 @@ import * as cheerio from "cheerio";
 const getRandomWallpaper = async () => {
   const corsBypass = "https://api.allorigins.win/raw?url=";
 
+  const id = Math.trunc(Math.random() * 810);
+
   const { data } = await axios.get(
-    `${corsBypass}https://pokewalls.wordpress.com/?random`
+    `${corsBypass}https://pokewalls.wordpress.com/${id}`
   );
 
   const $ = cheerio.load(data);
