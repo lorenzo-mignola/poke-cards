@@ -2,11 +2,13 @@
   <div class="card-container">
     <CardContainer />
   </div>
+  <LinkDialog />
 </template>
 
 <script setup>
 import { onMounted } from "vue";
 import CardContainer from "../components/CardContainer.vue";
+import LinkDialog from "../components/LinkDialog.vue";
 import useWallpaperStore from "../store/wallpaperStore";
 
 const wallpaperStore = useWallpaperStore();

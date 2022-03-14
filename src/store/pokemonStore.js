@@ -5,6 +5,7 @@ const usePokemonStore = defineStore("pokemon", {
   state: () => ({
     pokemonId: [],
     pokemon: {},
+    link: null,
   }),
   actions: {
     addPokemon() {
@@ -42,6 +43,9 @@ const usePokemonStore = defineStore("pokemon", {
       const prevId = this.pokemonId[index];
       this.pokemonId.splice(index, 1);
       delete this.pokemon[prevId];
+    },
+    setLink(link) {
+      this.link = link;
     },
   },
   getters: {

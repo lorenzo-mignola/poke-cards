@@ -4,7 +4,7 @@
       class="glass lg:text-6xl md:3xl bold capitalize shadow-none p-6 flex items-center w-full justify-center"
     >
       <PokeBall class="pokeball mr-3" />
-      {{ nameStore.name }} card
+      {{ nameStore.name }} team
       <PokeBall class="pokeball ml-3" />
     </h1>
     <div class="pokemons p-5">
