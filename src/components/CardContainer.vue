@@ -21,6 +21,7 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
+import { useRouter } from "vue-router";
 import PokeBall from "../assets/Poké_Ball_icon.svg";
 import useNameStore from "../store/nameStore";
 import usePokemonStore from "../store/pokemonStore";
@@ -30,8 +31,13 @@ import ShareButton from "./ShareButton.vue";
 
 const pokemonStore = usePokemonStore();
 const nameStore = useNameStore();
+const router = useRouter();
 
 const { pokemonId } = storeToRefs(pokemonStore);
+
+if (!nameStore.name) {
+  router.push("/");
+}
 </script>
 
 <style lang="scss" scoped>

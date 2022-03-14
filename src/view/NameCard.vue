@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center justify-center h-full">
     <div class="glass-card text-center md:p-12 p-3">
-      <h1 class="md:text-6xl text-3xl font-bold pb-8">What's your name?</h1>
+      <h1 class="md:text-6xl text-3xl font-medium pb-8">What's your name?</h1>
       <div>
         <input
           v-model="name"
@@ -24,7 +24,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
 import { useRouter } from "vue-router";
 import Next from "../assets/Next.svg";
 import useNameStore from "../store/nameStore";
@@ -32,10 +32,18 @@ import useNameStore from "../store/nameStore";
 const router = useRouter();
 const nameStore = useNameStore();
 
+onMounted(() => {
+  document.body.style.backgroundImage = `radial-gradient(
+    circle,
+    rgba(63, 94, 251, 1) 0%,
+    rgba(252, 70, 107, 1) 100%
+  )`;
+});
+
 const name = ref("");
 const goNext = () => {
-  router.push("/card");
   nameStore.setName(name.value);
+  router.push("/card");
 };
 </script>
 
