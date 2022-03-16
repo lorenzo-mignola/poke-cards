@@ -43,6 +43,9 @@ if (!nameStore.name) {
 <style lang="scss" scoped>
 .card {
   width: 80vw;
+  @media (max-width: 1024px) {
+    width: 90vw;
+  }
 }
 
 h1 {

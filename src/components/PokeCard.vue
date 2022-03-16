@@ -3,7 +3,9 @@
     <div class="sprite rounded-full">
       <img v-if="pokemon" :src="pokemon.sprite" />
     </div>
-    <div class="w-full flex justify-between pr-7 items-center lg:ml-6 ml-3">
+    <div
+      class="w-full flex justify-between pr-4 lg:pr-7 items-center lg:ml-6 ml-3"
+    >
       <div class="flex items-center">
         <span class="font-semibold lg:text-xl text-md mr-1">#</span>
         <input
@@ -64,6 +66,12 @@ const handleDelete = () => {
 .sprite {
   min-height: 100px;
   min-width: 100px;
+  @media (max-width: 1024px) {
+    min-height: 50px;
+    min-width: 50px;
+    max-height: 50px;
+    max-width: 50px;
+  }
   display: grid;
   place-content: center;
   background-color: #fff;

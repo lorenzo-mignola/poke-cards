@@ -1,6 +1,6 @@
 <template>
   <button
-    class="p-3 shadow-lg hover:shadow-xl rounded-lg flex items-center mr-4 ml-4 border-gray-800 text-gray-800 border-2"
+    class="p-1 lg:p-3 shadow-lg hover:shadow-xl rounded-lg flex items-center mr-4 ml-4 border-gray-800 text-gray-800 border-2"
     @click="shareLink"
   >
     <Share class="mr-2" />Share
