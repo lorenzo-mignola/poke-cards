@@ -21,19 +21,36 @@
 
 <script setup>
 import { storeToRefs } from "pinia";
-import { useRouter } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 import PokeBall from "../assets/Poké_Ball_icon.svg";
 import useNameStore from "../store/nameStore";
 import usePokemonStore from "../store/pokemonStore";
+import useWallpaperStore from "../store/wallpaperStore";
 import AddButton from "./AddButton.vue";
 import PokeCard from "./PokeCard.vue";
 import ShareButton from "./ShareButton.vue";
 
 const pokemonStore = usePokemonStore();
+const wallpaperStore = useWallpaperStore();
 const nameStore = useNameStore();
 const router = useRouter();
+const route = useRoute();
 
 const { pokemonId } = storeToRefs(pokemonStore);
+
+if (route.params.name) {
+  nameStore.setName(route.params.name);
+  const data = JSON.parse(atob(route.query.pokemon));
+  if (data.pokemon) {
+    data.pokemon.forEach((pokeId, index) => {
+      pokemonStore.addPokemon(pokeId);
+      pokemonStore.getPokemonData(pokeId, index);
+    });
+  }
+  if (data.url) {
+    wallpaperStore.setWallpaper(data.url);
+  }
+}
 
 if (!nameStore.name) {
   router.push("/");

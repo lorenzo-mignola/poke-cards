@@ -16,9 +16,10 @@ import LinkDialog from "../components/LinkDialog.vue";
 import useWallpaperStore from "../store/wallpaperStore";
 
 const wallpaperStore = useWallpaperStore();
-const baseUrl = "https://pokewalls.files.wordpress.com";
+const baseUrl = "https://pokewalls.files.wordpress.com/";
 
 const showAlert = ref(false);
+
 const toggleAlert = () => {
   showAlert.value = true;
   setTimeout(() => {

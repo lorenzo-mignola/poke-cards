@@ -5,6 +5,7 @@ import NameCard from "./view/NameCard.vue";
 const routes = [
   { path: "/", component: NameCard },
   { path: "/card", component: Card },
+  { path: "/card/:name", component: Card },
 ];
 
 const router = createRouter({

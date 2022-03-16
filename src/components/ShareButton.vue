@@ -24,7 +24,9 @@ const shareLink = () => {
   };
   const base64Body = btoa(JSON.stringify(body));
   const baseUrl = "https://lorenzo-mignola-poke-card.netlify.app/#";
-  pokemonStore.setLink(`${baseUrl}/${nameStore.name}&pokemon=${base64Body}`);
+  pokemonStore.setLink(
+    `${baseUrl}/card/${nameStore.name}?pokemon=${base64Body}`
+  );
 };
 </script>
 
