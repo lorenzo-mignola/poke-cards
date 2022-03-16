@@ -23,7 +23,7 @@ const shareLink = () => {
     pokemon: pokemonStore.pokemonId,
   };
   const base64Body = btoa(JSON.stringify(body));
-  const baseUrl = "https://lorenzo-mignola-poke-card.netlify.app/#/";
+  const baseUrl = "https://lorenzo-mignola-poke-card.netlify.app/#";
   pokemonStore.setLink(`${baseUrl}/${nameStore.name}&pokemon=${base64Body}`);
 };
 </script>

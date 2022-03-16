@@ -39,8 +39,9 @@
             </button>
           </div>
           <!-- Modal body -->
-          <div class="p-6 pt-5 text-center">
+          <div class="p-6 flex flex-col text-center">
             <p>{{ pokemonStore.link }}</p>
+            <CopyLinkButton @alert="toggleAlert" />
           </div>
         </div>
       </div>
@@ -50,9 +51,18 @@
 
 <script setup>
 import usePokemonStore from "../store/pokemonStore";
+import CopyLinkButton from "./CopyLinkButton.vue";
+
+const emit = defineEmits(["show-alert"]);
 
 const pokemonStore = usePokemonStore();
-const closeModal = () => pokemonStore.setLink(null);
+const closeModal = () => {
+  pokemonStore.setLink(null);
+};
+
+const toggleAlert = () => {
+  emit("show-alert");
+};
 </script>
 
 <style lang="scss" scoped>
