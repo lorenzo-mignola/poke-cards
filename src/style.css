@@ -8,12 +8,8 @@ body {
   min-height: 100vh;
   min-width: 100vw;
   background-repeat: no-repeat;
-  background: rgb(63, 94, 251);
-  background: radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
-  );
+  background: #4084ac;
+  background-image: linear-gradient(-225deg, #cbbacc 0%, #4084ac 100%);
   background-size: cover;
   background-position: center;
 }
@@ -28,16 +24,14 @@ body {
 }
 
 .button-primary {
-  background-image: radial-gradient(
-    circle farthest-corner at 10% 20%,
-    rgba(247, 87, 0, 1) 0%,
-    rgba(249, 0, 0, 1) 90.1%
-  );
+  background: #5b6b75;
   color: white;
 }
+
 .button-primary:disabled {
   box-shadow: none;
   background: #9ca3af;
+  color: gray;
 }
 .button-primary:disabled:hover {
   box-shadow: none;

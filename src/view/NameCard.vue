@@ -33,11 +33,7 @@ const router = useRouter();
 const nameStore = useNameStore();
 
 onMounted(() => {
-  document.body.style.backgroundImage = `radial-gradient(
-    circle,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
-  )`;
+  document.body.style.backgroundImage = `linear-gradient(-225deg, #cbbacc 0%, #4084ac 100%)`;
 });
 
 const name = ref("");
